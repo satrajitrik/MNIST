@@ -26,7 +26,6 @@ def knn(k):
             count += 1
 
     accuracy = count / 10000
-    accuracy_list.append(accuracy)
     print("For k = ", str(k), " accuracy ", accuracy)
     return accuracy
 
