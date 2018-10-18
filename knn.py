@@ -26,8 +26,8 @@ def knn(k):
             count += 1
 
     accuracy = count / 10000
-    print("For k = ", str(k), " accuracy ", accuracy)
-    return accuracy
+    print("For k = ", k, " accuracy = ", accuracy * 100)
+    return (accuracy * 100)
 
 def main():
     k_list = [1, 3, 5, 10, 30, 50, 70, 80, 90, 100]
@@ -35,9 +35,10 @@ def main():
     for k in k_list:
         accuracy_list.append(knn(k))
 
-    plt.plot(k_list, list(np.array(accuracy_list)*100), "ro")
+    plt.plot(k_list, accuracy_list, "ro")
     plt.xlabel("K")
     plt.ylabel("Accuracy")
+    plt.show()
 
 if __name__ == "__main__":
     main()

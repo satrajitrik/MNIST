@@ -54,21 +54,21 @@ def test():
     for i in range(len(predictions)):
         if predictions[i] == y_test_data[i]:
             count += 1
-    return (count / 100)
+    return (count / 10000)
 
 def main():
     accuracy_list = []
     size_list = []
     for i in range(100):
-        print("ITERATION", str(i))
-        print("TRAINING")
         train()
-        print("TESTING")
         accuracy = test()
-        accuracy_list.append(accuracy)
-        size_list.append((i+1))
+        print("For iteration = ", i + 1, " accuracy = ", accuracy * 100)
+        accuracy_list.append(accuracy * 100)
+        size_list.append((i + 1))
 
     plt.plot(size_list, accuracy_list, 'ro')
+    plt.xlabel("Iterations")
+    plt.ylabel("Accuracy")
     plt.show()
 
 if __name__ == "__main__":
